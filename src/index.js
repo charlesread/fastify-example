@@ -22,3 +22,8 @@ const start = async () => {
 }
 
 start()
+
+process.on('SIGINT', function () {
+  console.log('caught SIGINT')
+  fastify.close(process.exit)
+})
